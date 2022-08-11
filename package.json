@@ -1,0 +1,12 @@
+{
+  "name": "gigs-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Asmovic/gigs.git",
+  "author": "Asmovic",
+  "license": "ISC",
+  "homepage": "https://github.com/Asmovic/gigs#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
