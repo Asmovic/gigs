@@ -4,19 +4,32 @@
   "main": "index.js",
   "scripts": {
     "build": "babel server -d dist",
-    "start": "npm run build && nodemon dist/index.js"
+    "sequelize": "sequelize",
+    "db:create": "sequelize db:create --env",
+    "migrate": "sequelize db:migrate",
+    "migrate:refresh": "yarn run migrate:reset && yarn run migrate",
+    "migrate:reset": "sequelize db:migrate:undo:all",
+    "migrate:undo": "yarn run sequelize -- db:migrate:undo",
+    "dev": "node -r dotenv/config -r @babel/register server/bin/www.js",
+    "start": "yarn run build && nodemon dist/index.js",
+    "start:dev": "nodemon --exec yarn run dev"
   },
   "repository": "https://github.com/Asmovic/gigs.git",
   "author": "Asmovic",
   "license": "ISC",
   "homepage": "https://github.com/Asmovic/gigs#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "app-root-path": "^3.0.0",
+    "dotenv": "^16.0.1",
     "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "express": "^4.18.1",
     "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.3",
     "winston": "^3.8.1",
     "winston-daily-rotate-file": "^4.7.1"
   },

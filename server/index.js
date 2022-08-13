@@ -17,8 +17,6 @@ app.use(morgan(':remote-addr - ":method :url :status ":user-agent"', {
   skip: () => !isProduction,
 }));
 
-const PORT = 3000;
-
 app.get('/', (req, res) => res.send("Welcome. Let's create a Gig"));
 app.all('*', (req, res) => {
   res.status(404).json({
@@ -26,5 +24,5 @@ app.all('*', (req, res) => {
     error: '404 Page Not Found',
   });
 });
-app.listen(process.env.PORT || PORT, () => console.log(`Server Listening on PORT ${PORT}`));
+
 export default app;

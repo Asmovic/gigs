@@ -1,4 +1,9 @@
 node_modules
 dist
 yarn.lock
-coverage
+
+# Logs
+log
+
+# dotenv environment variables file
+.env
