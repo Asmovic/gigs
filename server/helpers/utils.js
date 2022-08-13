@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken';
+
 /**
  * Retrieves the value for environment config variable
  *
@@ -22,3 +24,14 @@ export const validateConfigVariable = (requiredEnv) => {
     );
   }
 };
+
+/**
+ * Generates JWT token using provided payload
+ *
+ * @param {Object} payload - Payload to encrypt
+ * @param {string} expiresIn Validity perion of the token
+ * @return {string} JWT token string
+ */
+export const generateToken = async (payload, expiresIn) => jwt.sign(payload, env('APP_KEY'), expiresIn);
+
+export default {};
