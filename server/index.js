@@ -15,7 +15,7 @@ app.all("*", (req, res) => {
 });
 
 app.listen(process.env.PORT || PORT, () =>
-  console.log(`Server Listening on Port :${PORT}`)
+  console.log(`Server Listening on PORT ${PORT}`)
 );
 
 export default app;
